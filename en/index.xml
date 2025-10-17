@@ -4,7 +4,7 @@
     <title>Example Site</title>
     <link>https://tantide.github.io/en/</link>
     <description>Recent content on Example Site</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Example Person</copyright>
     <atom:link href="https://tantide.github.io/en/index.xml" rel="self" type="application/rss+xml" />
