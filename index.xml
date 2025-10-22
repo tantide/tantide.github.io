@@ -1,4 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tan Tide</title><link>https://tantide.github.io/</link><description>Recent content on Tan Tide</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Tan Tide</copyright><atom:link href="https://tantide.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Hello Hugo</title><link>https://tantide.github.io/p/hello-hugo/</link><pubDate>Mon, 20 Oct 2025 10:33:50 +0800</pubDate><guid>https://tantide.github.io/p/hello-hugo/</guid><description>&lt;img src="https://tantide.github.io/p/hello-hugo/cover.jpg" alt="Featured image of post Hello Hugo" /&gt;&lt;p&gt;使用Hugo和其Stack主题搭建本地博客并通过GitHub Actions自动部署到GitHub Pages&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tan Tide</title><link>https://tantide.github.io/</link><description>Recent content on Tan Tide</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Tan Tide</copyright><atom:link href="https://tantide.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Hello Hugo</title><link>https://tantide.github.io/p/hello-hugo/</link><pubDate>Mon, 20 Oct 2025 10:33:50 +0800</pubDate><guid>https://tantide.github.io/p/hello-hugo/</guid><description>&lt;img src="https://tantide.github.io/p/hello-hugo/hugo-logo-wide.svg" alt="Featured image of post Hello Hugo" /&gt;&lt;p&gt;使用&lt;a class="link" href="https://gohugo.io/" target="_blank" rel="noopener"
+&gt;Hugo&lt;/a&gt;和&lt;a class="link" href="https://stack.jimmycai.com/" target="_blank" rel="noopener"
+&gt;Stack&lt;/a&gt;主题搭建本地博客并通过GitHub Actions自动部署到GitHub Pages&lt;/p&gt;
+&lt;p&gt;在开始之前，必要的准备&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;创建&lt;a class="link" href="https://github.com/" target="_blank" rel="noopener"
+&gt;GitHub&lt;/a&gt;账号，用于博客展示和托管站点文件。&lt;/li&gt;
+&lt;li&gt;安装&lt;a class="link" href="https://git-scm.com/" target="_blank" rel="noopener"
+&gt;git&lt;/a&gt;，用于推送站点文件到GitHub。&lt;/li&gt;
+&lt;li&gt;基础的Linux使用知识。&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h2 id="参考链接"&gt;参考链接
 &lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://brume.top/p/build-your-personal-blog-with-hugo" target="_blank" rel="noopener"
 &gt;https://brume.top/p/build-your-personal-blog-with-hugo&lt;/a&gt;&lt;br&gt;
@@ -6,12 +16,17 @@
 &gt;https://letere-gzj.github.io/hugo-stack/p/hugo/custom-blog&lt;/a&gt;&lt;br&gt;
 &lt;a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack-starter" target="_blank" rel="noopener"
 &gt;https://github.com/CaiJimmy/hugo-theme-stack-starter&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id="环境"&gt;环境
+&lt;h2 id="环境说明"&gt;环境说明
 &lt;/h2&gt;&lt;p&gt;Ubuntu 24.04.3 LTS&lt;br&gt;
 git version 2.43.0&lt;br&gt;
 hugo v0.151.1-1cdd17882c28a9f23278d38ef03b403954cfb1e5+extended&lt;/p&gt;
 &lt;h2 id="本地建站"&gt;本地建站
-&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;在命令行执行如下命令，注意替换 &lt;code&gt;站点名称&lt;/code&gt;&lt;br&gt;
+hugo new site &lt;code&gt;站点名称&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;hugo默认不提供主题，所以需要自行导入主题，此处使用Jimmy Cai创作的Stack主题。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
 &lt;/span&gt;&lt;span class="lnt"&gt; 2
@@ -23,26 +38,30 @@ hugo v0.151.1-1cdd17882c28a9f23278d38ef03b403954cfb1e5+extended&lt;/p&gt;
 &lt;/span&gt;&lt;span class="lnt"&gt; 8
 &lt;/span&gt;&lt;span class="lnt"&gt; 9
 &lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;hugo new site &lt;span class="o"&gt;{&lt;/span&gt;站点名称&lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;站点名称&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 添加Stack主题并使用其提供的默认配置和示例&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 注意替换 站点名称 GitHub用户名 局域网IP&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; 站点名称
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git init
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git submodule add https://github.com/CaiJimmy/hugo-theme-stack/ themes/hugo-theme-stack
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cp -r themes/hugo-theme-stack/exampleSite/content/* content/
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cp themes/hugo-theme-stack/exampleSite/hugo.yaml ./
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;rm -f hugo.toml
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;rm -rf content/post/rich-content
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;hugo server -D --bind&lt;span class="o"&gt;={&lt;/span&gt;IP&lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sed -i &lt;span class="s1"&gt;&amp;#39;s|example.com|{用户名}.github.io|&amp;#39;&lt;/span&gt; hugo.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sed -i &lt;span class="s1"&gt;&amp;#39;s|example.com|GitHub用户名.github.io|&amp;#39;&lt;/span&gt; hugo.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;hugo server -D --baseURL&lt;span class="o"&gt;=&lt;/span&gt;http://局域网IP:1313 --bind&lt;span class="o"&gt;=&lt;/span&gt;局域网IP
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="github部署"&gt;GitHub部署
+&lt;/div&gt;&lt;p&gt;好了，现在访问 http://&lt;code&gt;局域网IP&lt;/code&gt;:1313 查看效果。&lt;/p&gt;
+&lt;h2 id="github自动部署"&gt;GitHub自动部署
 &lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;在GitHub上创建名称为{站点名称}的仓库，用于存放站点文件&lt;/li&gt;
+&lt;li&gt;在GitHub上创建名称为 &lt;code&gt;站点名称&lt;/code&gt; 的仓库，用于存放站点源文件&lt;/li&gt;
+&lt;li&gt;创建一个名称为 &lt;code&gt;GitHub用户名&lt;/code&gt;.github.io 的public仓库，用于存放静态页面&lt;/li&gt;
 &lt;li&gt;前往Setttings -&amp;gt; Developer Settings -&amp;gt; Personal access tokens，创建一个token(classic)&lt;/li&gt;
 &lt;li&gt;将token保存到仓库的Settings -&amp;gt; Secrets and variables -&amp;gt; Actions&lt;/li&gt;
-&lt;li&gt;在站点目录创建一个.github/workflows/xxxx.yaml文件&lt;/li&gt;
+&lt;li&gt;在站点目录创建一个.github/workflows/deploy.yaml文件&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
@@ -84,11 +103,13 @@ hugo v0.151.1-1cdd17882c28a9f23278d38ef03b403954cfb1e5+extended&lt;/p&gt;
 &lt;/span&gt;&lt;span class="lnt"&gt;36
 &lt;/span&gt;&lt;span class="lnt"&gt;37
 &lt;/span&gt;&lt;span class="lnt"&gt;38
+&lt;/span&gt;&lt;span class="lnt"&gt;39
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;Deploy to Github Pages&lt;/span&gt;&lt;span class="w"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c"&gt;# 注意替换 Token变量名 GitHub用户名&lt;/span&gt;&lt;span class="w"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="c"&gt;# 代码提交到main分支时触发github action&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;Deploy to Github Pages&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="nt"&gt;on&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;push&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;branches&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="l"&gt;main]&lt;/span&gt;&lt;span class="w"&gt;
@@ -119,8 +140,8 @@ hugo v0.151.1-1cdd17882c28a9f23278d38ef03b403954cfb1e5+extended&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;Deploy 🚀&lt;/span&gt;&lt;span class="w"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;uses&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;peaceiris/actions-gh-pages@v4&lt;/span&gt;&lt;span class="w"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;with&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;PERSONAL_TOKEN&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;${{ secrets.{Token变量名} }}&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;EXTERNAL_REPOSITORY&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;{&lt;span class="l"&gt;用户名}/{用户名}.github.io&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;PERSONAL_TOKEN&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;${{ secrets.Token变量名 }}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;EXTERNAL_REPOSITORY&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;GitHub用户名/GitHub用户名.github.io&lt;/span&gt;&lt;span class="w"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;PUBLISH_BRANCH&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;main&lt;/span&gt;&lt;span class="w"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;PUBLISH_DIR&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;./public&lt;/span&gt;&lt;span class="w"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;commit_message&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;auto deploy&lt;/span&gt;&lt;span class="w"&gt;
@@ -132,18 +153,13 @@ hugo v0.151.1-1cdd17882c28a9f23278d38ef03b403954cfb1e5+extended&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-txt" data-lang="txt"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;public
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;resources
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;.hugo_build.lock
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; -e &lt;span class="s1"&gt;&amp;#39;public\nresources\n.hugo_build.lock\n\n&amp;#39;&lt;/span&gt; &amp;gt; .gitignore
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;创建一个名称为{用户名}.github.io的public仓库&lt;/li&gt;
-&lt;li&gt;提交，然后通过GitHub Actions自动部署静态页面&lt;/li&gt;
+&lt;li&gt;提交，然后等待GitHub Actions自动部署静态页面&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
@@ -154,16 +170,30 @@ hugo v0.151.1-1cdd17882c28a9f23278d38ef03b403954cfb1e5+extended&lt;/p&gt;
 &lt;/span&gt;&lt;span class="lnt"&gt;5
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git add .
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git add .
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git commit -m &lt;span class="s2"&gt;&amp;#34;first commit&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git branch -M main
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git remote add origin git@github.com:&lt;span class="o"&gt;{&lt;/span&gt;用户名&lt;span class="o"&gt;}&lt;/span&gt;/&lt;span class="o"&gt;{&lt;/span&gt;站点名称&lt;span class="o"&gt;}&lt;/span&gt;.git
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git remote add origin git@github.com:GitHub用户名/站点名称.git
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git push -u origin main
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;查看Actions和{用户名}.github.io仓库验证&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>归档</title><link>https://tantide.github.io/archives/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>https://tantide.github.io/archives/</guid><description/></item><item><title>关于</title><link>https://tantide.github.io/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tantide.github.io/about/</guid><description>&lt;p&gt;This is a test page for i18n support.&lt;/p&gt;</description></item><item><title>链接</title><link>https://tantide.github.io/links/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tantide.github.io/links/</guid><description>&lt;p&gt;To use this feature, add &lt;code&gt;links&lt;/code&gt; section to frontmatter.&lt;/p&gt;
+&lt;li&gt;查看 Actions记录 和 &lt;code&gt;GitHub用户名&lt;/code&gt;.github.io仓库 验证&lt;/li&gt;
+&lt;li&gt;后续提交&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git add .
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git commit -m &lt;span class="s2"&gt;&amp;#34;说明&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git push
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>归档</title><link>https://tantide.github.io/archives/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>https://tantide.github.io/archives/</guid><description/></item><item><title>关于</title><link>https://tantide.github.io/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tantide.github.io/about/</guid><description>&lt;p&gt;This is a test page for i18n support.&lt;/p&gt;</description></item><item><title>链接</title><link>https://tantide.github.io/links/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tantide.github.io/links/</guid><description>&lt;p&gt;To use this feature, add &lt;code&gt;links&lt;/code&gt; section to frontmatter.&lt;/p&gt;
 &lt;p&gt;This page&amp;rsquo;s frontmatter:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
