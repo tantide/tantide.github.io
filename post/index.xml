@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Tan Tide</title><link>https://tantide.github.io/post/</link><description>Recent content in Posts on Tan Tide</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Tan Tide</copyright><lastBuildDate>Wed, 22 Oct 2025 17:45:18 +0800</lastBuildDate><atom:link href="https://tantide.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Hello Hugo</title><link>https://tantide.github.io/p/hello-hugo/</link><pubDate>Mon, 20 Oct 2025 10:33:50 +0800</pubDate><guid>https://tantide.github.io/p/hello-hugo/</guid><description>&lt;img src="https://tantide.github.io/p/hello-hugo/hugo-logo-wide.svg" alt="Featured image of post Hello Hugo" /&gt;&lt;p&gt;使用&lt;a class="link" href="https://gohugo.io/" target="_blank" rel="noopener"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Tan Tide</title><link>https://tantide.github.io/post/</link><description>Recent content in Posts on Tan Tide</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Tan Tide</copyright><lastBuildDate>Wed, 22 Oct 2025 17:50:16 +0800</lastBuildDate><atom:link href="https://tantide.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Hello Hugo</title><link>https://tantide.github.io/p/hello-hugo/</link><pubDate>Mon, 20 Oct 2025 10:33:50 +0800</pubDate><guid>https://tantide.github.io/p/hello-hugo/</guid><description>&lt;img src="https://tantide.github.io/p/hello-hugo/hugo-logo-wide.svg" alt="Featured image of post Hello Hugo" /&gt;&lt;p&gt;使用&lt;a class="link" href="https://gohugo.io/" target="_blank" rel="noopener"
 &gt;Hugo&lt;/a&gt;和&lt;a class="link" href="https://stack.jimmycai.com/" target="_blank" rel="noopener"
 &gt;Stack&lt;/a&gt;主题搭建本地博客并通过GitHub Actions自动部署到GitHub Pages&lt;/p&gt;
 &lt;p&gt;在开始之前，必要的准备&lt;/p&gt;
@@ -55,7 +55,7 @@ hugo new site &lt;code&gt;站点名称&lt;/code&gt;&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;现在，访问 http://&lt;code&gt;局域网IP&lt;/code&gt;:1313 查看效果。&lt;/p&gt;
-&lt;h2 id="提交部署"&gt;提交部署
+&lt;h2 id="自动部署"&gt;自动部署
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;创建两个GitHub存储库：&lt;/li&gt;
 &lt;/ol&gt;
@@ -207,7 +207,7 @@ hugo new site &lt;code&gt;站点名称&lt;/code&gt;&lt;/p&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git add .
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git commit -m &lt;span class="s2"&gt;&amp;#34;更新描述&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git commit -m &lt;span class="s2"&gt;&amp;#34;更新说明&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git push
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
